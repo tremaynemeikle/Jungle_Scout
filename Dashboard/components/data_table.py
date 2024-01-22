@@ -23,22 +23,35 @@ def render(app: Dash, data: pd.DataFrame):
                      Input(ids.DATE_RANGE_BEGIN, "date"),
                      Input(ids.DATE_RANGE_END, "date"),
                      Input(ids.SALES_LOWER_BOUND, "value"),
-                     Input(ids.SALES_UPPER_BOUND, "value")
+                     Input(ids.SALES_UPPER_BOUND, "value"),
+                     Input(ids.PRICE_LOWER_BOUND, "value"),
+                     Input(ids.PRICE_UPPER_BOUND, "value")
                     ]
                 )
-    def update_table(category: list[str], outlier: str, begin_date: str, end_date: str, sales_min: int, sales_max: int):
+    def update_table(category: list[str], outlier: str, begin_date: str, end_date: str, sales_min: int, sales_max: int, price_min: int, price_max: int):
 
         data_copy = initial_data_copy.copy()
 
         filtered_data = data_copy.query("Category == @category")
         
+        # Column Filters
         if sales_min is None:
                sales_min = 0
         
+        if price_min is None:
+               price_min = 0
+        
+        
         if sales_max is None:
                sales_max = 10000000
+        
+        if price_max is None:
+               price_max = 10000000
                
+        
         filtered_data = filtered_data.loc[(filtered_data["Est. Monthly Sales"] >= sales_min) & (filtered_data["Est. Monthly Sales"] <= sales_max)]
+
+        filtered_data = filtered_data.loc[(filtered_data["Price"] >= price_min) & (filtered_data["Price"] <= price_max)]
 
         filtered_data.reset_index(drop = True, inplace = True)
         

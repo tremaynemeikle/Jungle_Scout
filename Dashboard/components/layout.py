@@ -8,7 +8,8 @@ import dash_bootstrap_components as dbc
 from . import outlier_checkbox
 from . import category_dropdown
 from . import date_range
-from . import rev_filter
+from . import sales_filter
+from . import price_filter
 from . import total_products
 from . import sales_median
 from . import price_median
@@ -70,12 +71,21 @@ def create_layout(app:Dash, data: pd.DataFrame) -> html.Div:
                                                                    ),
                                                           width = 2,
                                                           align = "center"
-                                                         ),
+                                                         )
+                                                 
+                                                ], 
+                                                justify="center"              
+                                         ),
+                                html.Hr(),
+                                # Column Filters
+                                dbc.Row(
+                                         
+                                                [
                                                  dbc.Col(
                                                          
                                                           dbc.Card(
                                                                    [
-                                                                    rev_filter.render(app)
+                                                                    sales_filter.render(app)
                                                                     ],
                                                                    body = True,
                                                                    className = "shadow-lg rounded align-middle text-sm-center" 
@@ -83,14 +93,27 @@ def create_layout(app:Dash, data: pd.DataFrame) -> html.Div:
                                                            width = 2,
                                                            align="center"
                                                           
-                                                         )
+                                                         ),
+                                                 dbc.Col(
+                                                          
+                                                           dbc.Card(
+                                                                    [
+                                                                     price_filter.render(app)
+                                                                     ],
+                                                                    body = True,
+                                                                    className = "shadow-lg rounded align-middle text-sm-center" 
+                                                                    ),
+                                                            width = 2,
+                                                            align="center"
+                                                           
+                                                          )
                                                  
                                                 ], 
                                                 justify="center"              
                                          ),
                                 html.Hr(),
                                 html.Br(),
-                                html.Br(),
+                                
                                 # Table Numbers
                                  dcc.Store(id = ids.STORE_DATA),        
                                  dbc.Row(

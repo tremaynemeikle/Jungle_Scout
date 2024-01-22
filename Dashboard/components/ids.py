@@ -15,4 +15,6 @@ HISTOGRAM_SELECTION_2 = "histogram_selection_2"
 CAT_RESTORE_BUTTON = 'cat_restore_button'
 SALES_LOWER_BOUND = 'sales_lower_bound'
 SALES_UPPER_BOUND = 'sales_upper_bound'
+PRICE_LOWER_BOUND = 'price_lower_bound'
+PRICE_UPPER_BOUND = 'price_upper_bound'
 
