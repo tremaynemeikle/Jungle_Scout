@@ -17,4 +17,5 @@ SALES_LOWER_BOUND = 'sales_lower_bound'
 SALES_UPPER_BOUND = 'sales_upper_bound'
 PRICE_LOWER_BOUND = 'price_lower_bound'
 PRICE_UPPER_BOUND = 'price_upper_bound'
+PRODUCT_FILTER = 'product_filter'
 

@@ -10,6 +10,7 @@ from . import category_dropdown
 from . import date_range
 from . import sales_filter
 from . import price_filter
+from. import product_include_filter
 from . import total_products
 from . import sales_median
 from . import price_median
@@ -81,6 +82,19 @@ def create_layout(app:Dash, data: pd.DataFrame) -> html.Div:
                                 dbc.Row(
                                          
                                                 [
+                                                 dbc.Col(
+                                                          
+                                                           dbc.Card(
+                                                                    [
+                                                                     product_include_filter.render(app)
+                                                                     ],
+                                                                    body = True,
+                                                                    className = "shadow-lg rounded align-middle text-sm-center" 
+                                                                    ),
+                                                            width = 2,
+                                                            align="center"
+                                                           
+                                                          ),
                                                  dbc.Col(
                                                          
                                                           dbc.Card(
