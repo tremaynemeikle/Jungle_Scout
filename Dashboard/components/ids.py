@@ -18,4 +18,6 @@ SALES_UPPER_BOUND = 'sales_upper_bound'
 PRICE_LOWER_BOUND = 'price_lower_bound'
 PRICE_UPPER_BOUND = 'price_upper_bound'
 PRODUCT_FILTER = 'product_filter'
+REVIEW_FILTER_LOWER_BOUND = 'review_filter_lower_bound'
+REVIEW_FILTER_UPPER_BOUND = 'review_filter_upper_bound'
 

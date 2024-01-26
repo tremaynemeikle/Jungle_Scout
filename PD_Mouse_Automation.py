@@ -1,5 +1,6 @@
 import pyautogui
 import time
+from random import randint
 
 pages = 200
 
@@ -9,6 +10,9 @@ pyautogui.click()
 
 for i in range(0, pages):
 
+    if (i%15 == 0) & (i > 0):
+        time.sleep(randint(10,60))
+    
     # Download csv
     pyautogui.moveTo(1310, 345, .3)
     time.sleep(.5)
