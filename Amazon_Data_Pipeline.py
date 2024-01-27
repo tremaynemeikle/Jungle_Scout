@@ -5,12 +5,14 @@ import os
 # Concat csvs
 df = pd.DataFrame()
 
-for i in os.listdir("Jungle_Prod_Data"):
+data_directory = "Data/Jungle_Prod_Data"
+
+for i in os.listdir(data_directory):
 
     if i == ".DS_Store":
         pass
     else:
-        get_df = pd.read_csv(f"Jungle_Prod_Data/{i}", header = 2)
+        get_df = pd.read_csv(f"{data_directory}/{i}", header = 2)
         df = pd.concat([df, get_df])
 
 df.drop_duplicates(inplace=True)
