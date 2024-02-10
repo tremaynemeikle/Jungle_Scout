@@ -22,7 +22,7 @@ def render(app: Dash) -> html.Div:
         
         else:
             data = pd.DataFrame(data)
-            sales_med = data["Est. Monthly Sales"].median()
+            sales_med = data["Monthly Units Sold"].median()
         
         print(data)
         return html.Div(

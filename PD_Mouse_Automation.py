@@ -2,7 +2,7 @@ import pyautogui
 import time
 from random import randint
 
-pages = 200
+pages = 40
 
 # Download Save
 pyautogui.moveTo(115, 810, .3)
@@ -33,7 +33,7 @@ for i in range(0, pages):
     pyautogui.moveTo(1570, 339, .3)
     pyautogui.click()
 
-    time.sleep(20)
+    time.sleep(30)
 
 
 

@@ -8,7 +8,7 @@ from . import ids
 
 def render(app: Dash) -> html.Div:
     
-    category_options = ["Category", "Est. Monthly Revenue", "Est. Monthly Sales", "Price", "Reviews", "Date First Available"]
+    category_options = ["Category", "Net Revenue", "Monthly Units Sold", "Price", "Reviews", "Date First Available"]
     
     return html.Div(children = [html.H5("y-axis"), 
                                 dcc.Dropdown(

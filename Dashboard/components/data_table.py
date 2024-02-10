@@ -61,7 +61,7 @@ def render(app: Dash, data: pd.DataFrame):
                 filtered_data = filtered_data.loc[(filtered_data["Product Name"].str.contains(product))]
                
         
-        filtered_data = filtered_data.loc[(filtered_data["Est. Monthly Sales"] >= sales_min) & (filtered_data["Est. Monthly Sales"] <= sales_max)]
+        filtered_data = filtered_data.loc[(filtered_data["Monthly Units Sold"] >= sales_min) & (filtered_data["Monthly Units Sold"] <= sales_max)]
 
         filtered_data = filtered_data.loc[(filtered_data["Price"] >= price_min) & (filtered_data["Price"] <= price_max)]
 
@@ -81,7 +81,7 @@ def render(app: Dash, data: pd.DataFrame):
         if (outlier == ['Remove Sales Outliers']) & (len(filtered_data) > 0):
 
                 df_std = pd.DataFrame()
-                column = "Est. Monthly Sales"
+                column = "Monthly Units Sold"
 
                 for i in filtered_data["Category"].unique():
                         df_cat = filtered_data.loc[filtered_data["Category"] == i].reset_index(drop = True)
@@ -131,7 +131,8 @@ def render(app: Dash, data: pd.DataFrame):
                                                          fixed_rows={'headers': True},
                                                          tooltip_data=initial_data_copy.to_dict('records'),
                                                          tooltip_delay=0,
-                                                         tooltip_duration=None
+                                                         tooltip_duration=None,
+                                                         filter_action='native'
                                                          
                                                       )
                                  )

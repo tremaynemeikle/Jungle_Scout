@@ -108,11 +108,19 @@ df_master = pd.DataFrame(dict)
 
 df_master["% of Prods. W/ < 50 Reviews Of Recent Avail Prods."] = (df_master["Prods. < 50 Reviews"]/df_master["Total # Of Products In Last Year"]) * 100
 
+df_master.drop_duplicates(inplace=True)
+df_master.reset_index(drop = True, inplace=True)
 #df_master.to_excel("../Previous Year Extension Data.xlsx")
-df_master.to_csv("Data/Data Exports/Previous Year Extension Data")
+df_master.to_csv("Data/Data Exports/Filtered Extension Data")
 
 raw_df.drop_duplicates(inplace = True)
-raw_df.to_excel("../Spread Sheets/Full_DataSet.xlsx")
+column_to_move = raw_df.pop("Link")
+
+# insert column with insert(location, column_name, column_value)
+raw_df.insert(1, "Link", column_to_move)
+
+raw_df.reset_index(drop = True, inplace=True)
+raw_df.to_csv("Data/Data Exports/Full_Data")
 
 
  # %%

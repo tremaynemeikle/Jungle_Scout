@@ -11,7 +11,7 @@ from . import date_range
 from . import sales_filter
 from . import price_filter
 from . import review_filter
-from. import product_include_filter
+from . import product_include_filter
 from . import total_products
 from . import sales_median
 from . import price_median

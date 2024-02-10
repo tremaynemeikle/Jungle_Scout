@@ -18,7 +18,7 @@ def render(app: Dash) -> html.Div:
         
         data = pd.DataFrame(data)
 
-        fig = px.scatter(data, x = "Price", y = "Est. Monthly Sales", hover_data = ["Product Name", "ASIN"])
+        fig = px.scatter(data, x = "Price", y = "Monthly Units Sold", hover_data = ["Product Name", "ASIN"])
         #df_group = data.groupby(by = ["Category"]).median().reset_index()
         #fig = px.bar(df_group, x = "Category", y = "Est. Monthly Revenue")
 
