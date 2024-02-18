@@ -3,6 +3,7 @@
 from dash import Dash, html
 from dash_bootstrap_components.themes import SUPERHERO, BOOTSTRAP
 import dash_bootstrap_components as dbc
+from Functions import Amazon_Data_Pipeline as ap
 
 from components.layout import create_layout
 
@@ -22,13 +23,16 @@ def main() -> None:
     #data = pd.read_csv("Data/Data Exports/Full_Data")
     app = Dash(external_stylesheets = [dbc.themes.JOURNAL, dbc.icons.FONT_AWESOME])
 
-    app.title = "Product Database Analysis"
+    app.title = "Jungle Scout Extension Data Analysis"
     app.layout = create_layout(app, data)
 
     app.run()
 
 
 if __name__ == "__main__":
+
+    # data update
+    ap.data_pipeline("ext_search")
     main()
 
 

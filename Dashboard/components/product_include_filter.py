@@ -16,7 +16,7 @@ def render(app: Dash) -> html.Div:
                                 dbc.Row([
                                         dbc.Col(
                                                 [
-                                                dcc.Input(id = ids.PRODUCT_FILTER, placeholder="Product Name")
+                                                 dcc.Input(id = ids.PRODUCT_FILTER, placeholder="Product Name")
                                                 ]
                                                 ),
                                         ])

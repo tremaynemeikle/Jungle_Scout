@@ -4,7 +4,7 @@ from datetime import date
 import os
 from statistics import mean, median
 
-def data_pipe(data_type: str, folder: str):
+def data_pipeline(data_type: str, folder = None):
     
     if data_type == "data_base":
 
@@ -12,7 +12,7 @@ def data_pipe(data_type: str, folder: str):
         df = pd.DataFrame()
 
         data_directory = "Data/Product CSVs"
-        #folder = "Prod. Data - STD - Price 25-60 - Review max 200 - Revenue Min 20000 - FDA 6M"
+        folder = "Prod. Data - STD - Price 25-40 - Review max 1000 - FDA 6M"
 
         for i in os.listdir(f"{data_directory}/{folder}"):
 
@@ -55,7 +55,7 @@ def data_pipe(data_type: str, folder: str):
         df["Date First Available"] = pd.to_datetime(df["Date First Available"], dayfirst=True)
 
         # Export Cleaned data to pickle
-        df.to_excel(f"Data/Data Exports/Prod. Database Data/{folder}.xlsx")
+        df.to_csv(f"Data/Data Exports/Prod. Database Data/{folder}")
     
     
     elif data_type == "ext_search":
@@ -184,3 +184,7 @@ def data_pipe(data_type: str, folder: str):
 
 
         # %%
+
+
+if __name__ == "__main__":
+    data_pipeline("data_base")

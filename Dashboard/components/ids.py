@@ -20,4 +20,6 @@ PRICE_UPPER_BOUND = 'price_upper_bound'
 PRODUCT_FILTER = 'product_filter'
 REVIEW_FILTER_LOWER_BOUND = 'review_filter_lower_bound'
 REVIEW_FILTER_UPPER_BOUND = 'review_filter_upper_bound'
+REVENUE_FILTER_LOWER_BOUND = 'revenue_filter_lower_bound'
+REVENUE_FILTER_UPPER_BOUND = 'revenue_filter_upper_bound'
 

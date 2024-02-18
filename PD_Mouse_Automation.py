@@ -2,7 +2,7 @@ import pyautogui
 import time
 from random import randint
 
-pages = 40
+pages = 60
 
 # Download Save
 pyautogui.moveTo(115, 810, .3)

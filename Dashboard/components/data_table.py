@@ -28,10 +28,12 @@ def render(app: Dash, data: pd.DataFrame):
                      Input(ids.PRICE_UPPER_BOUND, "value"),
                      Input(ids.PRODUCT_FILTER, "value"),
                      Input(ids.REVIEW_FILTER_LOWER_BOUND, "value"),
-                     Input(ids.REVIEW_FILTER_UPPER_BOUND, "value")
+                     Input(ids.REVIEW_FILTER_UPPER_BOUND, "value"),
+                     Input(ids.REVENUE_FILTER_LOWER_BOUND, "value"),
+                     Input(ids.REVENUE_FILTER_UPPER_BOUND, "value")
                     ]
                 )
-    def update_table(category: list[str], outlier: str, begin_date: str, end_date: str, sales_min: int, sales_max: int, price_min: int, price_max: int, product: list[str], review_min: int, review_max:int):
+    def update_table(category: list[str], outlier: str, begin_date: str, end_date: str, sales_min: int, sales_max: int, price_min: int, price_max: int, product: list[str], review_min: int, review_max:int, revenue_min:int, revenue_max:int):
 
         data_copy = initial_data_copy.copy()
 
@@ -47,7 +49,11 @@ def render(app: Dash, data: pd.DataFrame):
         if review_min is None:
                review_min = 0
         
+        if revenue_min is None:
+               revenue_min = 0
         
+
+
         if sales_max is None:
                sales_max = 10000000
         
@@ -56,6 +62,9 @@ def render(app: Dash, data: pd.DataFrame):
         
         if review_max is None:
                review_max = 10000000
+       
+        if revenue_max is None:
+               revenue_max = 10000000
         
         if product is not None:
                 filtered_data = filtered_data.loc[(filtered_data["Product Name"].str.contains(product))]
@@ -66,6 +75,8 @@ def render(app: Dash, data: pd.DataFrame):
         filtered_data = filtered_data.loc[(filtered_data["Price"] >= price_min) & (filtered_data["Price"] <= price_max)]
 
         filtered_data = filtered_data.loc[(filtered_data["Reviews"] >= review_min) & (filtered_data["Reviews"] <= review_max)]
+
+        filtered_data = filtered_data.loc[(filtered_data["Monthly Revenue"] >= revenue_min) & (filtered_data["Monthly Revenue"] <= revenue_max)]
 
         
 

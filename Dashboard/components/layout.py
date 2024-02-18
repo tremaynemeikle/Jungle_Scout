@@ -9,6 +9,7 @@ from . import outlier_checkbox
 from . import category_dropdown
 from . import date_range
 from . import sales_filter
+from . import revenue_filter
 from . import price_filter
 from . import review_filter
 from . import product_include_filter
@@ -101,6 +102,19 @@ def create_layout(app:Dash, data: pd.DataFrame) -> html.Div:
                                                           dbc.Card(
                                                                    [
                                                                     sales_filter.render(app)
+                                                                    ],
+                                                                   body = True,
+                                                                   className = "shadow-lg rounded align-middle text-sm-center" 
+                                                                   ),
+                                                           width = 2,
+                                                           align="center"
+                                                          
+                                                         ),
+                                                 dbc.Col(
+                                                         
+                                                          dbc.Card(
+                                                                   [
+                                                                    revenue_filter.render(app)
                                                                     ],
                                                                    body = True,
                                                                    className = "shadow-lg rounded align-middle text-sm-center" 
